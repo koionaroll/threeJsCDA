@@ -112,15 +112,9 @@ ball.rotation.z += 0.05
 
 cube.rotation.x += -0.1
 cube.rotation.y += -0.05
-if (t===0){
-  camera.position.x=-0
-  camera.position.y=-0
-  camera.position.z=-0
-}
-
-  camera.position.z = t* -0.01
-  camera.position.x = t* -0.0002
-  camera.position.y = t* -0.0002
+camera.position.z = Math.max(t * -0.01, 0.1);
+camera.position.x = t * -0.0002;
+camera.position.y = t * -0.0002;
 }
 document.body.onscroll = moveCamera
 
