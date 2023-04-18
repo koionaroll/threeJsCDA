@@ -118,7 +118,6 @@ camera.position.y = t * -0.0002;
 }
 document.body.onscroll = moveCamera
 
-
 function animate() {
   requestAnimationFrame(animate);
 
@@ -132,3 +131,16 @@ function animate() {
 }
 
 animate();
+
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    if (entry.isIntersecting){
+      entry.target.classList.add("show")
+    }else{
+      entry.target.classList.remove("show")
+    }
+  })
+})
+const hiddenElements = document.querySelectorAll(".hidden")
+hiddenElements.forEach((e)=> observer.observe(e))
